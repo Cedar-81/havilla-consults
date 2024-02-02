@@ -1,10 +1,12 @@
 <script lang="ts">
     import dayjs from "dayjs";
     import { onMount } from "svelte";
-    // import { ArrowRight, ArrowLeft } from "lucide-svelte";
-    import { ChevronLeft, ChevronRight } from 'lucide-svelte';
+    import { ArrowRight, ChevronLeft, ChevronRight, Clock } from 'lucide-svelte';
     import { generateDate, months } from "$lib/calendar";
     import cn from "$lib/cn";
+    import FromTimeUi from "./fromTimeUI.svelte";
+    import { fromTime, showFromTime, toTime, showToTime } from "$lib/store";
+    import ToTimeUi from "./toTimeUI.svelte";
   
     let currentDate = dayjs();
     let today = currentDate;
@@ -32,9 +34,9 @@
     }
   </script>
   
-  <div class="">
-    <div class="lg:w-96 h-max p-4 pt-8 bg-brand-light/15">
-      <div class="flex justify-between items-center ">
+  <div class="h-max">
+    <div class="lg:w-full h-max p-4 pt-8 bg-brand-light/15">
+      <div class="flex justify-between items-center mx-4">
         <h1 class="select-none font-semibold">
           {months[today.month()]}, {today.year()}
         </h1>
@@ -59,7 +61,7 @@
           </button>
         </div>
       </div>
-      <div class="grid grid-cols-7 ">
+      <div class="grid grid-cols-7 mt-4 ">
         {#each days as day }
           <h1
             class="text-sm text-center h-14 w-14 grid place-content-center text-gray-500 select-none" 
@@ -88,6 +90,25 @@
               </button>
           </div>
         {/each}
+      </div>
+      <div class="flex items-center justify-center">
+        <div class="flex space-x-4 items-center py-4">
+          <div class="flex items-center relative justify-between w-[8em] px-3 border-brand-light border-2 rounded">
+            <input type="text" bind:value={ $fromTime } class="p-2 rounded w-20 flex items-center justify-center aspect-video bg-transparent transition-all outline-none" maxlength="5" />
+            <button on:click={() => showFromTime.set(!$showFromTime)} class=""><Clock class="h-5 w-5 text-gray-600" /></button>
+            <div class={`${$showFromTime ? "block" : "hidden"}`}>
+              <FromTimeUi />
+            </div>
+          </div>
+          <ArrowRight class="text-gray-500" />
+          <div class="flex items-center relative justify-between w-[8em] px-3 border-brand-light border-2 rounded">
+            <input type="text" bind:value={ $toTime } class="p-2 rounded w-20 flex items-center justify-center aspect-video bg-transparent transition-all outline-none" maxlength="5" />
+            <button on:click={() => showToTime.set(!$showToTime)} class=""><Clock class="h-5 w-5 text-gray-600" /></button>
+            <div class={`${$showToTime ? "block" : "hidden"}`}>
+              <ToTimeUi />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <!-- <div class="h-96 w-96 sm:px-5">

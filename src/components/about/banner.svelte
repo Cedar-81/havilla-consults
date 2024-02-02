@@ -1,8 +1,8 @@
-<div class="relative lg:grid grid-cols-2 h-[100vh] space-x-8">
+<div class="relative lg:grid grid-cols-2 h-[100vh] gap-20">
     <div class="relative w-screen lg:w-full h-full overflow-hidden">
         <img class="absolute h-full w-full object-cover
         " src="assets/abtbannerimg.png" alt="banner" />
-        <div class="w-full h-full top-0 right-0 absolute bg-black/70"></div>
+        <div class="w-full h-full top-0 right-0 lg:hidden absolute bg-black/70"></div>
     </div>
     <div class="absolute top-0 lg:relative right-0 h-full flex items-center">
         <div class="mt-10 lg:mt-0 w-[80%] space-y-8">

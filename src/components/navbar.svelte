@@ -5,7 +5,7 @@
     import { page } from '$app/stores';
   
     let showNav = false;
-    let activeNavLink = `${$page.url.pathname}`;
+    let activeNavLink = $page.url.pathname == "/" ? "/home" : `${$page.url.pathname}`;
 
     console.log(activeNavLink)
   
