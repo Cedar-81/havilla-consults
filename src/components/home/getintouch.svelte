@@ -21,6 +21,6 @@
         <input type="text" class="p-3 rounded outline-2 w-full outline-brand-light border transition-all border-gray-dark" placeholder="Subject" />
         <input type="text" class="p-3 rounded outline-2 w-full outline-brand-light border transition-all border-gray-dark" placeholder="Email" />
         <textarea  class="p-3 rounded outline-2 w-full outline-brand-light border transition-all border-gray-dark min-h-72" placeholder="Message" />
-        <button class="btn-primary bg-brand-dark">Send</button>
+        <button class="btn-primary bg-brand-dark w-full lg:w-[15em]">Send</button>
     </div>
 </div>

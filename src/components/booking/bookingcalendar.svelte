@@ -4,7 +4,7 @@
 </script>
 
 <div class="flex justify-end">
-    <div class="w-[30em] h-max">
+    <div class="w-full lg:w-[30em] h-max">
         <Calendar />
     </div>
 </div>
