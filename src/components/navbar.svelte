@@ -3,11 +3,12 @@
     import { goto } from '$app/navigation';
     import { AlignRight } from "lucide-svelte";
     import { page } from '$app/stores';
+    import { activeNavLink } from '$lib/store';
   
     let showNav = false;
-    let activeNavLink = $page.url.pathname == "/" ? "/home" : `${$page.url.pathname}`;
+    const url = $page.url.pathname == "/" ? "/home" : `${$page.url.pathname}`
+    activeNavLink.set(url);
 
-    console.log(activeNavLink)
   
     function toggleNav() {
       console.log("clicked")
@@ -17,7 +18,7 @@
     onMount(() => {
       // Check if running on the client side before calling goto
       if (import.meta.env.browser) {
-        goto(activeNavLink);
+        goto($activeNavLink);
       }
     });
   </script>
@@ -32,8 +33,8 @@
         { href: '/booking', text: 'Booking' }
       ] as { href, text }}
         <a href={href} class="w-full">
-          <button class="w-full" on:click={() => (activeNavLink = href)}><li
-            class={`text-lg w-full text-left lg:text-center px-8 lg:px-0 py-2 ${activeNavLink === href && 'font-bold text-brand-light'} border-t lg:border-t-0 lg:py-0`}
+          <button class="w-full" on:click={() => (activeNavLink.set(href))}><li
+            class={`text-lg w-full text-left lg:text-center px-8 lg:px-0 py-2 ${$activeNavLink === href && 'font-bold text-brand-light'} border-t lg:border-t-0 lg:py-0`}
             
           >
             <p class="text-lg">{text}</p>
@@ -41,11 +42,11 @@
         </a>
       {/each}
       <div class="w-full flex lg:hidden px-8">
-        <button class="btn-primary mt-8 bg-brand-light">Book a call</button>
+        <a href="#booking"><button class="btn-primary mt-8 bg-brand-light">Book a call</button></a>
       </div>
     </ul>
   
-    <button class="btn-primary bg-brand-light hidden lg:flex">Book a call</button>
+    <a href="#booking"><button class="btn-primary bg-brand-light hidden lg:flex">Book a call</button></a>
     <button class="lg:hidden" on:click={toggleNav}>
       <AlignRight class="text-gray-600" />
     </button>

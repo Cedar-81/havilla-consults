@@ -11,8 +11,8 @@
                 <p class="lg:text-lg font-semibold text-gray-200 lg:text-black">guiding your path to international education and successful relocation</p>
             </div>
             <div class="lg:flex space-y-4 lg:space-y-0 gap-4 lg:gap-10 lg:ml-28">
-                <button class="btn-primary bg-brand-dark">Book a consultation</button>
-                <button class="btn-outlined">Enquire</button>
+                <div><a href="#booking"><button class="btn-primary bg-brand-dark lg:bg-brand-light">Book a consultation</button></a></div>
+                <div><a href="#contact"><button class="btn-outlined">Enquire</button></a></div>
             </div>
 
         </div>

@@ -6,6 +6,7 @@ const fromTime = writable("12:00");
 const toTime = writable("12:00");
 const showFromTime = writable(false)
 const showToTime = writable(false)
+const activeNavLink = writable("/")
 
 // Export the store and its methods
-export { fromTime, toTime , showFromTime, showToTime };
+export { fromTime, toTime , showFromTime, showToTime, activeNavLink };

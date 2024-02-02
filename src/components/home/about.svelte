@@ -17,7 +17,7 @@
                     Our mission is to empower you with expert guidance, ensuring a smooth transition into international academic environments and opening doors to a world of opportunities.
                 </p>
             </div>
-            <button class="btn-primary bg-brand-dark">Let's talk</button>
+            <div><a href="#contact"><button class="btn-primary bg-brand-dark">Let's talk</button></a></div>
         </div>
     </div>
 </div>

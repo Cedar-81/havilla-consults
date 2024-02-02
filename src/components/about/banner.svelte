@@ -1,3 +1,8 @@
+<script>
+
+    import { activeNavLink } from "$lib/store";
+
+</script>
 <div class="relative lg:grid grid-cols-2 h-[100vh] gap-20">
     <div class="relative w-screen lg:w-full h-full overflow-hidden">
         <img class="absolute h-full w-full object-cover
@@ -7,7 +12,7 @@
     <div class="absolute top-0 lg:relative right-0 h-full flex items-center">
         <div class="mt-10 lg:mt-0 w-[80%] space-y-8">
             <div class="space-y-5">
-                <h1 class="text-3xl lg:text-4xl font-bold text-brand-light lg:text-brand-dark">About Us</h1>
+                <h1 class="text-3xl lg:text-4xl font-bold text-brand-light ">About Us</h1>
                 <p class="text-sm text-gray-100 lg:text-black lg:text-lg font-medium">
                     Welcome to Havilla Consults, where the pursuit of knowledge meets the boundless opportunities 
                     of a globalized world. Established with a profound dedication to facilitating international 
@@ -16,7 +21,7 @@
                 </p>
             </div>
             <div class="flex gap-10">
-                <button class="btn-primary bg-brand-dark">Book a consultation</button>
+                <a href="/booking"><button on:click={() => activeNavLink.set("/booking")} class="btn-primary bg-brand-light">Book a consultation</button></a>
             </div>
         </div>
 
