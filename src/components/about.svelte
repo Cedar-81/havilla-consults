@@ -5,7 +5,7 @@
 	import Getintouch from "./home/getintouch.svelte";
 
 </script>
-<div class="space-y-[15em]">
+<div class="space-y-[5em]">
     <Banner />
     <Story />
     <Mission />

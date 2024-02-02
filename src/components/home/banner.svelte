@@ -4,7 +4,7 @@
         " src="assets/bannerimg.png" alt="banner" />
         <div class="w-full h-full top-0 right-0 absolute lg:hidden bg-black/50"></div>
     </div>
-    <div class="absolute top-0 lg:relative right-0 h-full lg:-ml-20 flex items-center">
+    <div class="absolute top-0 px-5 lg:px-0 lg:relative right-0 h-full lg:-ml-20 flex items-center">
         <div class="mt-10 lg:mt-0 w-full space-y-8">
             <div class="space-y-1">
                 <h1 class="text-3xl lg:text-5xl font-bold text-brand-light lg:text-brand-dark">Unlock Your Global Education<br class="hidden lg:block" /> Journey with Havilla Consults</h1>
