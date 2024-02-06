@@ -39,7 +39,7 @@
         <a href={href} class="w-full relative z-40 bg-white">
           <button class="w-full" on:click={() => {
             (activeNavLink.set(href))
-            showNav = !showNav
+            showNav = false
           }}><li
             class={`text-lg w-full text-left lg:text-center px-8 lg:px-0 py-2 ${$activeNavLink === href && 'font-bold text-brand-light'} lg:py-0`}
             
