@@ -12,7 +12,7 @@
             </div>
             <div class="lg:flex space-y-4 lg:space-y-0 gap-4 lg:gap-10 lg:ml-28">
                 <div><a href="#booking"><button class="btn-primary bg-brand-dark lg:bg-brand-light">Book a consultation</button></a></div>
-                <div><a href="#contact"><button class="btn-outlined">Enquire</button></a></div>
+                <div><a href="#contact"><button class="btn-outlined border-gray-200 text-gray-200 lg:border-brand-dark lg:text-brand-dark">Enquire</button></a></div>
             </div>
 
         </div>

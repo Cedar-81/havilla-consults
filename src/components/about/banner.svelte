@@ -9,7 +9,7 @@
         " src="assets/abtbannerimg.png" alt="banner" />
         <div class="w-full h-full top-0 right-0 lg:hidden absolute bg-black/70"></div>
     </div>
-    <div class="absolute top-0 lg:relative right-0 h-full flex items-center">
+    <div class="absolute top-0 px-5 lg:relative right-0 h-full flex items-center">
         <div class="mt-10 lg:mt-0 w-[80%] space-y-8">
             <div class="space-y-5">
                 <h1 class="text-3xl lg:text-4xl font-bold text-brand-light ">About Us</h1>

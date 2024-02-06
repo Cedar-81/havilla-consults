@@ -27,18 +27,21 @@
     });
   </script>
   
-  <div class="flex justify-between px-5 3xl:max-w-7xl left-[50%] -translate-x-[50%] lg:px-[80px] py-4 fixed top-0 right-0 w-full z-40 bg-white">
+  <div class={`flex justify-between px-5 3xl:max-w-7xl left-[50%] -translate-x-[50%] lg:px-[80px] py-4 fixed top-0 right-0 w-full z-40 bg-white ${!showNav ? "h-max" : "h-full items-start"}`}>
     <img class="h-[33px]" src="/assets/logo.png" alt="havilla logo" />
   
-    <ul class={`fixed flex flex-col top-0 left-0 h-full lg:w-min bg-white z-30 lg:relative lg:flex-row lg:items-center lg:space-x-8 pt-10 lg:pt-0 transition-all ${!showNav ? "w-0 overflow-hidden lg:w-full" : " w-[17em]"}`}>
+    <ul class={`fixed flex flex-col top-0 left-0 h-full lg:w-min bg-white z-50 lg:relative lg:flex-row lg:items-center lg:space-x-8 pt-10 lg:pt-0 transition-all ${!showNav && "hidden overflow-hidden !lg:w-[30em] lg:flex"}`}>
       {#each [
         { href: '/home', text: 'Home' },
         { href: '/about', text: 'About' },
         { href: '/booking', text: 'Booking' }
       ] as { href, text }}
-        <a href={href} class="w-full">
-          <button class="w-full" on:click={() => (activeNavLink.set(href))}><li
-            class={`text-lg w-full text-left lg:text-center px-8 lg:px-0 py-2 ${$activeNavLink === href && 'font-bold text-brand-light'} border-t lg:border-t-0 lg:py-0`}
+        <a href={href} class="w-full relative z-40 bg-white">
+          <button class="w-full" on:click={() => {
+            (activeNavLink.set(href))
+            showNav = !showNav
+          }}><li
+            class={`text-lg w-full text-left lg:text-center px-8 lg:px-0 py-2 ${$activeNavLink === href && 'font-bold text-brand-light'} lg:py-0`}
             
           >
             <p class="text-lg">{text}</p>

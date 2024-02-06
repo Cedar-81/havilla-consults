@@ -5,7 +5,7 @@
     import Footer from "../components/footer.svelte";
   </script>
  
- <div class="3xl:max-w-7xl mx-auto">
+ <div class="3xl:max-w-7xl 3xl:mx-auto">
     <SvelteToast />
     <Navbar />
     <slot />
