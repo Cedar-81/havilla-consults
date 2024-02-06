@@ -77,8 +77,6 @@ const getEventData = async (/** @type {any} */ code) => {
         // 'timeZone': 'UTC'
       },
       'attendees': [
-        {'email': 'lpage@example.com'},
-        {'email': 'sbrin@example.com'},
         {'email': 'havillaconsult@gmail.com'},
       ],
       'reminders': {
