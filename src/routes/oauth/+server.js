@@ -23,7 +23,7 @@ async function getUserData(access_token) {
 
 // @ts-ignore
 export const GET = async ({ url, cookies}) => {
-    const redirectURL = 'http://localhost:5173/oauth';
+    const redirectURL = process.env.NODE_ENV === 'development' ? "http://localhost:5173/oauth": "https://havilla.vercel.app/oauth";
     const code = url.searchParams.get('code');
     const paymentCode = url.searchParams.get('paymentCode');
     console.log("PaymentCode", paymentCode)

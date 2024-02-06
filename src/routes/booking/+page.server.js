@@ -39,7 +39,7 @@ export const actions = {
         }
        
         // @ts-ignore
-        const redirectURL = process.env.NODE_ENV === 'development' ? "localhost:5173": "https://havilla.vercel.app";
+        const redirectURL = process.env.NODE_ENV === 'development' ? "http://localhost:5173/oauth": "https://havilla.vercel.app/oauth";
 
         const oAuth2Client = new OAuth2Client(
             CLIENT_ID,

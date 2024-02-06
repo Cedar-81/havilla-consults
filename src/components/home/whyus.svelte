@@ -18,5 +18,5 @@
         </div>
     </div>
 
-    <div class="w-full flex justify-center"><button class="btn-primary bg-brand-light w-[15em]">Let's talk</button></div>
+    <div class="w-full flex justify-center"><a href="#contact"><button class="btn-primary bg-brand-light w-[15em]">Let's talk</button></a></div>
 </div>

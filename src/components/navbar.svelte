@@ -50,7 +50,7 @@
       </div>
     </ul>
   
-    <a href="#booking"><button class="btn-primary bg-brand-light hidden lg:flex">Book a call</button></a>
+    <a href="/booking"><button class="btn-primary bg-brand-light hidden lg:flex">Book a call</button></a>
     <button class="lg:hidden" on:click={toggleNav}>
       <AlignRight class="text-gray-600" />
     </button>
