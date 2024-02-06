@@ -3,15 +3,19 @@
     import { onMount } from "svelte";
     import { ArrowRight, ChevronLeft, ChevronRight, Clock } from 'lucide-svelte';
     import { generateDate, months } from "$lib/calendar";
+    import { eventDate } from "$lib/store";
     import cn from "$lib/cn";
     import FromTimeUi from "./fromTimeUI.svelte";
     import { fromTime, showFromTime, toTime, showToTime } from "$lib/store";
     import ToTimeUi from "./toTimeUI.svelte";
+    import { toast } from "@zerodevx/svelte-toast";
   
     let currentDate = dayjs();
     let today = currentDate;
-    let selectDate = currentDate;
+    let selectDate = dayjs(`${$eventDate}`);
     let days = ["S", "M", "T", "W", "T", "F", "S"];
+
+    console.log("inside here: ", $toTime, today.month())
   
     onMount(() => {
       // Use this block for any code that should run after the component is mounted.
@@ -31,6 +35,7 @@
   
     function handleDateClick(date: dayjs.Dayjs) {
       selectDate = date;
+      eventDate.set(selectDate.format('YYYY-MM-DD'))
     }
   </script>
   
@@ -41,12 +46,14 @@
           {months[today.month()]}, {today.year()}
         </h1>
         <div class="flex gap-10 items-center">
+          {#if today != currentDate }
             <button on:click={handlePreviousMonth}>
                 <ChevronLeft
                   class="w-5 h-5 cursor-pointer hover:scale-105 transition-all"
                   
                 />
             </button>
+          {/if}
           <button
             class="cursor-pointer hover:scale-105 transition-all"
             on:click={handleToday}
@@ -59,6 +66,7 @@
                 class="w-5 h-5 cursor-pointer hover:scale-105 transition-all"          
               />
           </button>
+
         </div>
       </div>
       <div class="grid grid-cols-7 mt-4 ">
@@ -102,8 +110,8 @@
           </div>
           <ArrowRight class="text-gray-500" />
           <div class="flex items-center relative justify-between w-[8em] px-3 border-brand-light border-2 rounded">
-            <input type="text" bind:value={ $toTime } class="p-2 rounded w-20 flex items-center justify-center aspect-video bg-transparent transition-all outline-none" maxlength="5" />
-            <button on:click={() => showToTime.set(!$showToTime)} class=""><Clock class="h-5 w-5 text-gray-600" /></button>
+            <input type="text" disabled bind:value={ $toTime } class="p-2 rounded w-20 flex items-center justify-center aspect-video bg-transparent transition-all outline-none" maxlength="5" />
+            <button on:click={() => toast.push("No worries, this is auto set.")} class=""><Clock class="h-5 w-5 text-gray-600" /></button>
             <div class={`${$showToTime ? "block" : "hidden"}`}>
               <ToTimeUi />
             </div>

@@ -3,19 +3,23 @@
     import { goto } from '$app/navigation';
     import { AlignRight } from "lucide-svelte";
     import { page } from '$app/stores';
-    import { activeNavLink } from '$lib/store';
-  
-    let showNav = false;
-    const url = $page.url.pathname == "/" ? "/home" : `${$page.url.pathname}`
-    activeNavLink.set(url);
+    import { activeNavLink, activeUrl } from '$lib/store';
+
 
   
+    let showNav = false;
+    $: activeNavLink.set($activeUrl);
+    console.log("active url", $activeUrl)
+    
+    
     function toggleNav() {
       console.log("clicked")
       showNav = !showNav;
     }
-  
+    
     onMount(() => {
+      activeUrl.set($page.url.pathname == "/" ? "/home" : `${$page.url.pathname}`)
+      console.log("active url", $activeUrl)
       // Check if running on the client side before calling goto
       if (import.meta.env.browser) {
         goto($activeNavLink);
