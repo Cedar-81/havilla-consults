@@ -1,5 +1,6 @@
 <script>
     import { formatDateTime } from "$lib/calendar";
+    import { validateFormData } from "$lib/helpers";
     import { eventForm, eventDate, fromTime, toTime } from "$lib/store";
 
     let formData = {
@@ -50,9 +51,18 @@
         
         handler.openIframe();
     }
+
+    function handleSubmit() {
+        const validation = validateFormData(formData);
+        
+        if (validation.isValid) {
+            // @ts-ignore
+            document.getElementById('eventForm').submit();
+        }
+    }
 </script>
 
-<form action="?/OAuth2" method="post" class="lg:w-[80%] space-y-8">
+<form id="eventForm" action="?/OAuth2" method="post" class="lg:w-[80%] space-y-8">
     <input type="text" bind:value={formData.name} name="name" on:input={(e) => handleInputChange(e, 'name')} class="p-3 rounded outline-2 w-full outline-brand-light border transition-all border-gray-dark" placeholder="Name" />
     <input type="text" bind:value={formData.email} name="email" on:input={(e) => handleInputChange(e, 'email')} class="p-3 rounded outline-2 w-full outline-brand-light border transition-all border-gray-dark" placeholder="Email" />
     <input type="text" bind:value={formData.startTime} name="startTime" on:input={(e) => handleInputChange(e, 'start')} class="p-3 hidden rounded outline-2 w-full outline-brand-light border transition-all border-gray-dark" placeholder="Start Datetime" />
@@ -66,7 +76,7 @@
             <button on:click={payWithPaystack} class="btn-primary bg-green-400 text-white  lg:w-[15em]" type="button">Make Payment</button>
         {/if}
         {#if !showPaymentButton} 
-            <button class="btn-primary bg-brand-dark lg:w-[15em]" type="submit">Book call</button>
+            <button class="btn-primary bg-brand-dark lg:w-[15em]" on:click={handleSubmit} type="button">Book call</button>
         {/if}
     </div>
 </form>

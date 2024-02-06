@@ -27,7 +27,7 @@
     });
   </script>
   
-  <div class="flex justify-between px-5 lg:px-[80px] py-4 fixed top-0 right-0 w-full max-w-full z-40 bg-white">
+  <div class="flex justify-between px-5 3xl:max-w-7xl left-[50%] -translate-x-[50%] lg:px-[80px] py-4 fixed top-0 right-0 w-full z-40 bg-white">
     <img class="h-[33px]" src="/assets/logo.png" alt="havilla logo" />
   
     <ul class={`fixed flex flex-col top-0 left-0 h-full lg:w-min bg-white z-30 lg:relative lg:flex-row lg:items-center lg:space-x-8 pt-10 lg:pt-0 transition-all ${!showNav ? "w-0 overflow-hidden lg:w-full" : " w-[17em]"}`}>

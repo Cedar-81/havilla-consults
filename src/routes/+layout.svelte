@@ -2,8 +2,12 @@
     import "../app.css";
     import { SvelteToast } from '@zerodevx/svelte-toast'
 	  import Navbar from "../components/navbar.svelte";
+    import Footer from "../components/footer.svelte";
   </script>
  
- <SvelteToast />
- <Navbar />
-<slot />
+ <div class="3xl:max-w-7xl mx-auto">
+    <SvelteToast />
+    <Navbar />
+    <slot />
+    <Footer />
+ </div>

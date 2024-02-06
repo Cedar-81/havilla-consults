@@ -1,5 +1,7 @@
 <script>
-    import { Instagram, Phone, Twitter } from "lucide-svelte";
+    import { validateEmailContent } from "$lib/helpers";
+    import { toast } from "@zerodevx/svelte-toast";
+    import { Instagram, Linkedin, Phone, Twitter } from "lucide-svelte";
     
     let emailContent = {
         name: "",
@@ -9,7 +11,15 @@
     }
 
     const handleSubmit = () => {
-        window.open(`mailto:${emailContent.email}?subject=${emailContent.subject}&body=${emailContent.body}`);
+        const validationErrors = validateEmailContent(emailContent);
+        if (validationErrors.length === 0) {
+            window.open(`mailto:${emailContent.email}?subject=${emailContent.subject}&body=${emailContent.body}`);
+        } else {
+            // Handle errors, e.g., display toast messages
+            validationErrors.forEach((error) => {
+                toast.push(error);
+            });
+        }
     }
     
 
@@ -28,9 +38,10 @@
         </div>
 
         <div class="space-y-4">
-            <div class="flex space-x-3 items-center"><Instagram class="h-5 text-brand-light w-5" /> <a href="/"><p>instagramusernamelink</p></a></div>
+            <!-- <div class="flex space-x-3 items-center"><Instagram class="h-5 text-brand-light w-5" /> <a href="/"><p>instagramusernamelink</p></a></div> -->
+            <div class="flex space-x-3 items-center"><Linkedin class="h-5 text-brand-light w-5" /> <a href="https://www.linkedin.com/in/havilla-educational-consults-7b139524b/" class="hover:text-brand-light"><p>Havilla Educational Consults</p></a></div>
             <div class="flex space-x-3 items-center"><Phone class="h-5 text-brand-light w-5" /> <p>+2348102232353</p></div>
-            <div class="flex space-x-3 items-center"><Twitter class="h-5 text-brand-light w-5" /> <a href="/"><p>instagramusernamelink</p></a></div>
+            <!-- <div class="flex space-x-3 items-center"><Twitter class="h-5 text-brand-light w-5" /> <a href="/"><p>instagramusernamelink</p></a></div> -->
         </div>
     </div>
 
