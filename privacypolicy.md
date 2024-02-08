@@ -1,4 +1,4 @@
-# Privacy Policy for [Your Application Name]
+# Privacy Policy for Havilla Consults, LLC
 
 **Last updated: Thursday 8 February, 2024**
 
@@ -42,4 +42,4 @@ We may update this Privacy Policy from time to time. We will notify you of signi
 
 ## Contact Us
 
-If you have any questions or concerns about this Privacy Policy, please contact us at [LinkedIn page]([https://www.linkedin.com/in/your-linkedin-page/](https://www.linkedin.com/in/havilla-educational-consults-7b139524b/)https://www.linkedin.com/in/havilla-educational-consults-7b139524b/).
+If you have any questions or concerns about this Privacy Policy, please contact us at [LinkedIn page](https://www.linkedin.com/in/havilla-educational-consults-7b139524b/)
